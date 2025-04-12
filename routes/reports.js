@@ -15,7 +15,7 @@ router.get('/weekly', auth, async (req, res) => {
     const transactions = await Transaction.aggregate([
       {
         $match: {
-          user: new mongoose.Types.ObjectId(req.user.id),
+          user: new mongoose.Types.ObjectId(req.user.id), 
           date: { $gte: oneWeekAgo },
           type: 'expense'
         }
